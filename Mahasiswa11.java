@@ -11,8 +11,10 @@ public class Mahasiswa11 {
 
 
     void tampilMahasiswa() {
-        System.out.println("NIM: " + nim);
-        System.out.println("Nama: " + nama);
-        System.out.println("Prodi: " + prodi);
-    }   
+        System.out.println("NIM: " + nim + "|" + "Nama: " + nama + "|" + "Prodi: " + prodi);
+    }
+
+    String getNim() {
+        return nim;
+    }
 }
