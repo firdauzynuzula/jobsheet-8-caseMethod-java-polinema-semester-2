@@ -8,19 +8,22 @@ public class Main {
 
         // objek mahasiswa, buku, dan peminjaman
         Mahasiswa11[] mahasiswaArray = new Mahasiswa11[3];
-        mahasiswaArray[0] = new Mahasiswa11("12345", "Alice", "Informatika");
-        mahasiswaArray[1] = new Mahasiswa11("67890", "Bob", "Sistem Informasi");
-        mahasiswaArray[2] = new Mahasiswa11("54321", "Charlie", "Teknik Komputer");
+        mahasiswaArray[0] = new Mahasiswa11("22001", "Andi", "Teknik Informatika");
+        mahasiswaArray[1] = new Mahasiswa11("22002", "Budi", "Teknik Informatika");
+        mahasiswaArray[2] = new Mahasiswa11("22003", "Citra", "Sistem Informasi");
 
-        Buku[] bukuArray = new Buku[3];
-        bukuArray[0] = new Buku("B001", "Algoritma dan Struktur Data", 2022);
-        bukuArray[1] = new Buku("B002", "Basis Data", 2021);
-        bukuArray[2] = new Buku("B003", "Pemrograman Berorientasi Objek", 2023);
+        Buku[] bukuArray = new Buku[4];
+        bukuArray[0] = new Buku("B001", "Algoritma", 2020);
+        bukuArray[1] = new Buku("B002", "Basis Data", 2019);
+        bukuArray[2] = new Buku("B003", "Pemrograman", 2021);
+        bukuArray[3] = new Buku("B004", "Fisika", 2024);
 
-        Peminjaman[] peminjamanArray = new Peminjaman[3];
-        peminjamanArray[0] = new Peminjaman(mahasiswaArray[0], bukuArray[0], 8);
-        peminjamanArray[1] = new Peminjaman(mahasiswaArray[1], bukuArray[1], 6);
-        peminjamanArray[2] = new Peminjaman(mahasiswaArray[2], bukuArray[2], 5);
+        Peminjaman[] peminjamanArray = new Peminjaman[5];
+        peminjamanArray[0] = new Peminjaman(mahasiswaArray[0], bukuArray[0], 7);
+        peminjamanArray[1] = new Peminjaman(mahasiswaArray[1], bukuArray[1], 3);
+        peminjamanArray[2] = new Peminjaman(mahasiswaArray[2], bukuArray[2], 10);
+        peminjamanArray[3] = new Peminjaman(mahasiswaArray[2], bukuArray[3], 6);
+        peminjamanArray[4] = new Peminjaman(mahasiswaArray[0], bukuArray[1], 4);
 
         System.out.println("=== SISTEM PEMINJAMAN RUANG BACA JTI ===");
         System.out.println("1. Tampilkan Mahasiswa");
@@ -58,7 +61,7 @@ public class Main {
                     break;
                 case 4:
                     // Urutkan Berdasarkan denda
-                    insertionSortPeminjamanByDenda(peminjamanArray);
+                    Peminjaman.bubbleSortByDenda(peminjamanArray);
 
                     System.out.println("Data peminjaman berdasarkan denda (terbesar ke terkecil):");
                     for (int i = 0; i < peminjamanArray.length; i++) {
@@ -71,7 +74,7 @@ public class Main {
                     System.out.print("Masukkan NIM yang dicari: ");
                     String nimCari = scanner.next();
 
-                    Mahasiswa11 mahasiswaDitemukan = sequentialSearchMahasiswaByNim(mahasiswaArray, nimCari);
+                    Mahasiswa11 mahasiswaDitemukan = Mahasiswa11.sequentialSearchByNim(mahasiswaArray, nimCari);
 
                     if (mahasiswaDitemukan != null) {
                         System.out.println("Mahasiswa ditemukan:");
@@ -90,29 +93,5 @@ public class Main {
         } while (pilihan != 0);
 
         scanner.close();
-    }
-
-    static void insertionSortPeminjamanByDenda(Peminjaman[] peminjamanArray) {
-        for (int i = 1; i < peminjamanArray.length; i++) {
-            Peminjaman keyPeminjaman = peminjamanArray[i];
-            int keyDenda = keyPeminjaman.hitungDenda();
-
-            int j = i - 1;
-            while (j >= 0 && peminjamanArray[j].hitungDenda() < keyDenda) {
-                peminjamanArray[j + 1] = peminjamanArray[j];
-                j--;
-            }
-
-            peminjamanArray[j + 1] = keyPeminjaman;
-        }
-    }
-
-    static Mahasiswa11 sequentialSearchMahasiswaByNim(Mahasiswa11[] mahasiswaArray, String nimCari) {
-        for (Mahasiswa11 mahasiswa : mahasiswaArray) {
-            if (mahasiswa.getNim().equals(nimCari)) {
-                return mahasiswa;
-            }
-        }
-        return null;
     }
 }

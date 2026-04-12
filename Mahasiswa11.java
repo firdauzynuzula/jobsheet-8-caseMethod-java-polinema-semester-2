@@ -17,4 +17,13 @@ public class Mahasiswa11 {
     String getNim() {
         return nim;
     }
+
+    static Mahasiswa11 sequentialSearchByNim(Mahasiswa11[] mahasiswaArray, String nimCari) {
+        for (Mahasiswa11 mahasiswa : mahasiswaArray) {
+            if (mahasiswa.getNim().equals(nimCari)) {
+                return mahasiswa;
+            }
+        }
+        return null;
+    }
 }

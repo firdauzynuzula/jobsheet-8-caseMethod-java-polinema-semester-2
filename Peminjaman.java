@@ -32,4 +32,16 @@ public class Peminjaman {
         denda = terlambat * 500;
         return denda;
     }
+
+    static void bubbleSortByDenda(Peminjaman[] peminjamanArray) {
+        for (int i = 0; i < peminjamanArray.length - 1; i++) {
+            for (int j = 0; j < peminjamanArray.length - 1 - i; j++) {
+                if (peminjamanArray[j].hitungDenda() < peminjamanArray[j + 1].hitungDenda()) {
+                    Peminjaman temp = peminjamanArray[j];
+                    peminjamanArray[j] = peminjamanArray[j + 1];
+                    peminjamanArray[j + 1] = temp;
+                }
+            }
+        }
+    }
 }
