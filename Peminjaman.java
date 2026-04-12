@@ -23,7 +23,6 @@ public class Peminjaman {
                 + "|" + "Kode Buku: " + buku.kodeBuku
                 + "|" + "Judul: " + buku.judul
                 + "|" + "Lama Pinjam: " + lamaPinjam + " hari"
-                + "|" + "Batas Pinjam: " + batasPinjam + " hari"
                 + "|" + "Hari Terlambat: " + terlambat
                 + "|" + "Denda: Rp" + denda);
     }
