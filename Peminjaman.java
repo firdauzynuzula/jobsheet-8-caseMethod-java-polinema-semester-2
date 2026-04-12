@@ -19,9 +19,8 @@ public class Peminjaman {
     }
 
     void tampilPeminjaman() {
-        System.out.println("Nama Mahasiswa: " + mahasiswa.nama
-                + "|" + "Kode Buku: " + buku.kodeBuku
-                + "|" + "Judul: " + buku.judul
+        System.out.println( mahasiswa.nama
+                + "|"  + buku.judul
                 + "|" + "Lama Pinjam: " + lamaPinjam + " hari"
                 + "|" + "Hari Terlambat: " + terlambat
                 + "|" + "Denda: Rp" + denda);
@@ -29,7 +28,7 @@ public class Peminjaman {
     
     int hitungDenda() {
         terlambat = Math.max(0, lamaPinjam - batasPinjam);
-        denda = terlambat * 500;
+        denda = terlambat * 2000;
         return denda;
     }
 
