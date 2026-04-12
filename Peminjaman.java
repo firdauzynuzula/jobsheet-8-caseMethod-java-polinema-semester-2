@@ -19,13 +19,13 @@ public class Peminjaman {
     }
 
     void tampilPeminjaman() {
-        System.out.println("Peminjaman Buku:");
-        System.out.println("Nama Mahasiswa: " + mahasiswa.nama);
-        buku.tampilBuku();
-        System.out.println("Lama Pinjam: " + lamaPinjam + " hari");
-        System.out.println("Batas Pinjam: " + batasPinjam + " hari");
-        System.out.println("Hari Terlambat: " + terlambat);
-        System.out.println("Denda: Rp" + denda);
+        System.out.println("Nama Mahasiswa: " + mahasiswa.nama
+                + "|" + "Kode Buku: " + buku.kodeBuku
+                + "|" + "Judul: " + buku.judul
+                + "|" + "Lama Pinjam: " + lamaPinjam + " hari"
+                + "|" + "Batas Pinjam: " + batasPinjam + " hari"
+                + "|" + "Hari Terlambat: " + terlambat
+                + "|" + "Denda: Rp" + denda);
     }
     
     int hitungDenda() {
