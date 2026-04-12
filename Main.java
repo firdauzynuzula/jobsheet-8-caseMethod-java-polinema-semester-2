@@ -71,8 +71,7 @@ public class Main {
                     System.out.print("Masukkan NIM yang dicari: ");
                     String nimCari = scanner.next();
 
-                    Mahasiswa11[] mahasiswaTerurut = mahasiswaArray.clone();
-                    Mahasiswa11 mahasiswaDitemukan = binarySearchMahasiswaByNim(mahasiswaTerurut, nimCari);
+                    Mahasiswa11 mahasiswaDitemukan = sequentialSearchMahasiswaByNim(mahasiswaArray, nimCari);
 
                     if (mahasiswaDitemukan != null) {
                         System.out.println("Mahasiswa ditemukan:");
@@ -108,25 +107,12 @@ public class Main {
         }
     }
 
-    static Mahasiswa11 binarySearchMahasiswaByNim(Mahasiswa11[] mahasiswaArray, String nimCari) {
-        int kiri = 0;
-        int kanan = mahasiswaArray.length - 1;
-
-        while (kiri <= kanan) {
-            int tengah = kiri + (kanan - kiri) / 2;
-            int hasilBanding = mahasiswaArray[tengah].getNim().compareTo(nimCari);
-
-            if (hasilBanding == 0) {
-                return mahasiswaArray[tengah];
-            }
-
-            if (hasilBanding < 0) {
-                kiri = tengah + 1;
-            } else {
-                kanan = tengah - 1;
+    static Mahasiswa11 sequentialSearchMahasiswaByNim(Mahasiswa11[] mahasiswaArray, String nimCari) {
+        for (Mahasiswa11 mahasiswa : mahasiswaArray) {
+            if (mahasiswa.getNim().equals(nimCari)) {
+                return mahasiswa;
             }
         }
-
         return null;
     }
 }
