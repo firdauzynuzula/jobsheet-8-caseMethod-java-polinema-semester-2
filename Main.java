@@ -12,11 +12,12 @@ public class Main {
         mahasiswaArray[1] = new Mahasiswa11("22002", "Budi", "Teknik Informatika");
         mahasiswaArray[2] = new Mahasiswa11("22003", "Citra", "Sistem Informasi");
 
-        Buku[] bukuArray = new Buku[4];
+        Buku[] bukuArray = new Buku[5];
         bukuArray[0] = new Buku("B001", "Algoritma", 2020);
         bukuArray[1] = new Buku("B002", "Basis Data", 2019);
         bukuArray[2] = new Buku("B003", "Pemrograman", 2021);
         bukuArray[3] = new Buku("B004", "Fisika", 2024);
+        bukuArray[4] = new Buku("B005", "Jaringan Komputer", 2022);
 
         Peminjaman[] peminjamanArray = new Peminjaman[5];
         peminjamanArray[0] = new Peminjaman(mahasiswaArray[0], bukuArray[0], 7);
@@ -31,6 +32,7 @@ public class Main {
         System.out.println("3. Tampilkan Peminjaman");
         System.out.println("4. Urutkan Berdasarkan denda");
         System.out.println("5. Cari Berdasarkan NIM");
+        System.out.println("6. Tampilkan Buku Belum Pernah Dipinjam");
         System.out.println("0. Keluar");
 
         do {
@@ -83,6 +85,10 @@ public class Main {
                         System.out.println("NIM tidak ditemukan.");
                     }
 
+                    break;
+                case 6:
+                    // Tampilkan buku yang belum pernah dipinjam
+                    Buku.tampilBukuBelumDipinjam(bukuArray, peminjamanArray);
                     break;
                 case 0:
                     System.out.println("Keluar dari program.");
